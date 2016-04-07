@@ -4,6 +4,8 @@
 CREATE TABLE IF NOT EXISTS `SUSCRIPTORES` (
   `id` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
+  `anyo_nacimiento` INT NOT NULL,
+  `total_suscripciones` INT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
