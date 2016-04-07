@@ -36,7 +36,7 @@ public interface DaoComentario {
      * @param b valor B del intervalo
      * @return el listado de todos los comentarios con un puntaje inferior a N de acuerdo
      * con un rango de edad dado [A..B], es decir, comentarios en donde
-     * puntaje < N    y   A < edad >= B
+     * puntaje < N    y   A < edad <= B
      * @throws PersistenceException si hay un error en la persistencia
      */
     public Set<Comentario> loadByScoreAndAge(int n, int a, int b) throws PersistenceException;

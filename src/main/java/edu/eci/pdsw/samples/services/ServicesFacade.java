@@ -64,7 +64,7 @@ public class ServicesFacade {
     
     /**
      * Consultar los comentarios mas bajos (menores a 5) en el rango de 
-     * edad (A..B], es decir, donde A < edad >= B
+     * edad (A..B], es decir, donde A < edad <= B
      * @param a asd
      * @param b asdas
      * @return el listado de comentarios cuyo puntaje es mejor que n
