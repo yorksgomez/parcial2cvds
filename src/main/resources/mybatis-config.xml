@@ -19,8 +19,7 @@
     </environments>
         
     <mappers>
-        <mapper resource="mappers/ComentarioMapper.xml"></mapper>        
-        <mapper resource="mappers/SuscriptorMapper.xml"></mapper>        
+        <mapper resource="mappers/ComentarioMapper.xml"></mapper>                
     </mappers> 
         
     <typeAliases>
