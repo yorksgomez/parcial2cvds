@@ -16,6 +16,7 @@
  */
 package edu.eci.pdsw.samples.tests;
 
+import edu.eci.pdsw.samples.entities.Comentario;
 import edu.eci.pdsw.samples.persistence.PersistenceException;
 import edu.eci.pdsw.samples.services.ServiceFacadeException;
 import edu.eci.pdsw.samples.services.ServicesFacade;
@@ -23,6 +24,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
@@ -33,9 +35,9 @@ import org.junit.Test;
  *
  * @author hcadavid
  */
-public class NewEmptyJUnitTest {
+public class ServicesJUnitTest {
 
-    public NewEmptyJUnitTest() {
+    public ServicesJUnitTest() {
     }
 
     @Before
@@ -52,34 +54,33 @@ public class NewEmptyJUnitTest {
         conn.close();
     }
 
+    /**
+     * Obtiene una conexion a la base de datos de prueba
+     * @return
+     * @throws SQLException 
+     */
+    private Connection getConnection() throws SQLException{
+        return DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "");        
+    }
     
-    /**
-     * Recuerde cambiar el nombre del método por algo más significativo.
-     * CLASE DE EQUIVALENCIA:
-     * @throws PersistenceException 
-     */
     @Test
-    public void pruebaUnoTest() throws PersistenceException {
-        //insertar datos en la base de datos 'volatil', antes de hacer la prueba
+    public void pruebaCeroTest() throws SQLException, ServiceFacadeException {
+        //Insertar datos en la base de datos de pruebas, de acuerdo con la clase
+        //de equivalencia correspondiente
+        Connection conn=getConnection();
+        Statement stmt=conn.createStatement();        
+        stmt.execute("INSERT INTO `SUSCRIPTORES` (`id`, `nombre`,`anyo_nacimiento`,`total_suscripciones`) VALUES (123,'PEDRO PEREZ',1980,10)");
+        stmt.execute("INSERT INTO `COMENTARIOS` (`id`, `comentario`, `puntaje`, `fecha`, `CLIENTES_id`) VALUES (3,'El periodico llego en mal estado',3,'2015-01-01 00:00:00',123)");          
+        conn.commit();
+        conn.close();
+	
+        //Realizar la operacion de la logica y la prueba
         
-        //realizar la prueba usando la fachada de servicios haciendo uso de la
-        //configuración que usa la base de datos volatil
-        ServicesFacade sf=ServicesFacade.getInstance("h2-applicationconfig.properties");  
-    }
-
-    /**
-     * Recuerde cambiar el nombre del método por algo más significativo.
-     * CLASE DE EQUIVALENCIA:
-     * @throws PersistenceException 
-     */
-    @Test
-    public void pruebaDosTest() throws PersistenceException {
-        //insertar datos en la base de datos 'volatil', antes de hacer la prueba
+        ServicesFacade servicios=ServicesFacade.getInstance("h2-applicationconfig.properties");
+	//servicios.comenteriosMasBajosPorRangoEdad(1, 10);
+        //assert ...
         
-        //realizar la prueba usando la fachada de servicios haciendo uso de la
-        //configuración que usa la base de datos volatil
-        ServicesFacade sf=ServicesFacade.getInstance("h2-applicationconfig.properties");        
-        
-    }
+    }    
+    
 
 }
