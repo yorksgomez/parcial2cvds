@@ -6,6 +6,13 @@
     <settings>
         <setting name="logImpl" value="LOG4J"/>        
     </settings>
+    
+    <typeAliases>
+        <typeAlias type='edu.eci.pdsw.samples.entities.Comentario' alias='Comentario'/>
+        <typeAlias type='edu.eci.pdsw.samples.entities.Suscriptor' alias='Suscriptor'/>
+    </typeAliases>        
+    
+    
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC" />
@@ -23,8 +30,4 @@
         <mapper resource="mappers/SuscriptorMapper.xml"></mapper>        
     </mappers> 
         
-    <typeAliases>
-        <typeAlias type='edu.eci.pdsw.samples.entities.Comentario' alias='Comentario'/>
-        <typeAlias type='edu.eci.pdsw.samples.entities.Suscriptor' alias='Suscriptor'/>
-    </typeAliases> 
 </configuration>
