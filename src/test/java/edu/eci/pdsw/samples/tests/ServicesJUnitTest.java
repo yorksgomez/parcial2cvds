@@ -28,6 +28,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -46,7 +47,7 @@ public class ServicesJUnitTest {
 
     @After
     public void clearDB() throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
+        Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "");
         Statement stmt = conn.createStatement();
         stmt.execute("delete from COMENTARIOS");
         stmt.execute("delete from SUSCRIPTORES");
@@ -79,6 +80,7 @@ public class ServicesJUnitTest {
         ServicesFacade servicios=ServicesFacade.getInstance("h2-applicationconfig.properties");
 	//servicios.comenteriosMasBajosPorRangoEdad(1, 10);
         //assert ...
+        Assert.fail("Pruebas no implementadas aun...");
         
     }    
     

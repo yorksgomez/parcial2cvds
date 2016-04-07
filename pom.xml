@@ -108,7 +108,7 @@
                 <configuration>
                     <driver>org.h2.Driver</driver>                    
                     <url>jdbc:h2:file:./target/db/testdb;MODE=MYSQL</url>
-                    <username></username>
+                    <username>anonymous</username>
                     <password></password>
                     <autocommit>false</autocommit>
                     <skip>${maven.test.skip}</skip>
