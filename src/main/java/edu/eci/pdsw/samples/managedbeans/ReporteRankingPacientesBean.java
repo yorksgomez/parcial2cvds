@@ -20,6 +20,6 @@ package edu.eci.pdsw.samples.managedbeans;
  *
  * @author hcadavid
  */
-public class ReportesComentariosBean {
+public class ReporteRankingPacientesBean {
     
 }

@@ -84,7 +84,7 @@ public class ServicesJUnitTest {
         //Realizar la operacion de la logica y la prueba
         
         ServicesFacade servicios=ServicesFacade.getInstance("h2-applicationconfig.properties");
-        //servicios.topNPacientesPorAnyo(2, 2005);	
+        servicios.topNPacientesPorAnyo(2, 2005);	
         //assert ...
         Assert.fail("Pruebas no implementadas aun...");
         

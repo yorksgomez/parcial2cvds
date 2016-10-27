@@ -78,7 +78,7 @@ public class ServicesFacade {
             return df.getDaoPaciente().loadTopNPatientsInAYear(N, year);
         } catch (PersistenceException ex) {
             Logger.getLogger(ServicesFacade.class.getName()).log(Level.SEVERE, null, ex);
-            throw new ServiceFacadeException("Error en consulta comentarios bajos por rango de edad", ex);                    
+            throw new ServiceFacadeException("Error en consulta de ranking de pacientes", ex);                    
         }
          
     }
