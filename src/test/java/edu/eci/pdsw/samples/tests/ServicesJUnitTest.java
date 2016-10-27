@@ -20,6 +20,7 @@ import edu.eci.pdsw.samples.services.ServiceFacadeException;
 import edu.eci.pdsw.samples.services.ServicesFacade;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import org.junit.After;
@@ -44,8 +45,9 @@ public class ServicesJUnitTest {
     public void clearDB() throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "");
         Statement stmt = conn.createStatement();
-        stmt.execute("delete from COMENTARIOS");
-        stmt.execute("delete from SUSCRIPTORES");
+        stmt.execute("delete from CONSULTAS");
+        stmt.execute("delete from PACIENTES");
+        
         conn.commit();
         conn.close();
     }
@@ -67,7 +69,13 @@ public class ServicesJUnitTest {
         Statement stmt=conn.createStatement();  
         
         stmt.execute("INSERT INTO `PACIENTES` (`id`, `tipo_id`, `nombre`, `fecha_nacimiento`) VALUES (9876,'ti','Carmenzo','1995-07-10')");
-        stmt.execute("INSERT INTO `CONSULTAS` (`idCONSULTAS`, `fecha_y_hora`, `resumen`, `PACIENTES_id`, `PACIENTES_tipo_id`) VALUES (1262218,'2001-01-01 00:00:00','Gracias',9876,'cc')"); 
+        stmt.execute("INSERT INTO `CONSULTAS` (`idCONSULTAS`, `fecha_y_hora`, `resumen`, `PACIENTES_id`, `PACIENTES_tipo_id`) VALUES (1262218,'2001-01-01 00:00:00','Gracias',9876,'ti')"); 
+        
+        
+        ResultSet rs=stmt.executeQuery("select count(*) from PACIENTES");
+        while (rs.next()){
+            System.out.println(">>>>"+rs.getInt(1));
+        }
         
         
         conn.commit();
