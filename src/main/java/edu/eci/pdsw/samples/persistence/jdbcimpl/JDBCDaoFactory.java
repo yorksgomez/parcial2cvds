@@ -16,13 +16,13 @@
  */
 package edu.eci.pdsw.samples.persistence.jdbcimpl;
 
-import edu.eci.pdsw.samples.persistence.DaoComentario;
 import edu.eci.pdsw.samples.persistence.DaoFactory;
 import edu.eci.pdsw.samples.persistence.PersistenceException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+import edu.eci.pdsw.samples.persistence.DAOPaciente;
 
 /**
  *
@@ -103,9 +103,10 @@ public class JDBCDaoFactory extends DaoFactory {
         }
     }
 
+    
     @Override
-    public DaoComentario getDaoComentario() {
-        return new JDBCDaoComentario(connectionInstance.get());
+    public DAOPaciente getDaoPaciente() {
+        return new JDBCDaoPaciente(connectionInstance.get());
     }
 
 }

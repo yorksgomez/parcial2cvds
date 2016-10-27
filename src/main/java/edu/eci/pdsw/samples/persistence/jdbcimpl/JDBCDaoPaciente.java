@@ -14,34 +14,39 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package edu.eci.pdsw.samples.persistence.mybatisimpl;
+package edu.eci.pdsw.samples.persistence.jdbcimpl;
 
 
-import edu.eci.pdsw.samples.entities.Comentario;
-import edu.eci.pdsw.samples.persistence.DaoComentario;
+import edu.eci.pdsw.samples.entities.Paciente;
 import edu.eci.pdsw.samples.persistence.PersistenceException;
-import edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.ComentariosMapper;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.LinkedHashSet;
 import java.util.Set;
-import org.apache.ibatis.session.SqlSession;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import edu.eci.pdsw.samples.persistence.DAOPaciente;
+import java.util.List;
 
 /**
  *
  * @author hcadavid
  */
-public class MyBatisDaoComentario implements DaoComentario{
+public class JDBCDaoPaciente implements DAOPaciente {
 
-    
-    private ComentariosMapper pmap=null;
+    Connection con;
 
-    public MyBatisDaoComentario(SqlSession session) {        
-        pmap=session.getMapper(ComentariosMapper.class);
-    }
+    public JDBCDaoPaciente(Connection con) {
+        this.con = con;
+    }            
 
     @Override
-    public Set<Comentario> loadByScoreAndAge(int n, int a, int b) throws PersistenceException {
+    public List<Paciente> loadTopNPatientsInAYear(int N, int year) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 
     
     

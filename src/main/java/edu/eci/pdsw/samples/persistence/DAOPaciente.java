@@ -16,30 +16,27 @@
  */
 package edu.eci.pdsw.samples.persistence;
 
-import edu.eci.pdsw.samples.entities.Comentario;
-import java.util.Set;
+import edu.eci.pdsw.samples.entities.Paciente;
+import java.util.List;
 
 
 /**
  *
  * @author hcadavid
  */
-public interface DaoComentario {
+public interface DAOPaciente {
 
     
-
-     /**
-     * Consultar todos los comentarios con un puntaje inferior a N de acuerdo
-     * con un rango de edad.
-     * @param n puntaje N de referencia
-     * @param a valor A del intervalo
-     * @param b valor B del intervalo
-     * @return el listado de todos los comentarios con un puntaje inferior a N de acuerdo
-     * con un rango de edad dado [A..B], es decir, comentarios en donde
-     * puntaje < N    y   A < edad <= B
-     * @throws PersistenceException si hay un error en la persistencia
-     */
-    public Set<Comentario> loadByScoreAndAge(int n, int a, int b) throws PersistenceException;
+    /**
+     * Consultar los N pacientes que mas consultas hayan tenido registrados
+     * en el anyo indicado (del 1 de Enero al 31 de Diciembre del anyo 
+     * indicado).
+     * @param N el tope de resultados de la consulta
+     * @param year El anyo para el cual se realiza la consulta
+     * @return los pacientes, ordenados por numero de consultas
+     */    
+    public List<Paciente> loadTopNPatientsInAYear(int N,int year);        
     
+        
     
 }

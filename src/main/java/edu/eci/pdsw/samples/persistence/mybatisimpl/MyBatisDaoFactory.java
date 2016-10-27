@@ -16,7 +16,6 @@
  */
 package edu.eci.pdsw.samples.persistence.mybatisimpl;
 
-import edu.eci.pdsw.samples.persistence.DaoComentario;
 import edu.eci.pdsw.samples.persistence.DaoFactory;
 import edu.eci.pdsw.samples.persistence.PersistenceException;
 import java.io.IOException;
@@ -26,6 +25,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import edu.eci.pdsw.samples.persistence.DAOPaciente;
 
 /**
  *
@@ -94,9 +94,10 @@ public class MyBatisDaoFactory extends DaoFactory {
         currentSession.close();
     }
 
+
     @Override
-    public DaoComentario getDaoComentario() {
-        return new MyBatisDaoComentario(currentSession);
+    public DAOPaciente getDaoPaciente() {
+        return new MyBatisDaoPaciente(currentSession);
     }
 
 }

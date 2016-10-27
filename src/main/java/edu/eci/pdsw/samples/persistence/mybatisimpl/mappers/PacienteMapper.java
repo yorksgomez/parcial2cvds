@@ -20,7 +20,7 @@ package edu.eci.pdsw.samples.persistence.mybatisimpl.mappers;
  *
  * @author hcadavid
  */
-public interface ComentariosMapper {
+public interface PacienteMapper {
 
     
     

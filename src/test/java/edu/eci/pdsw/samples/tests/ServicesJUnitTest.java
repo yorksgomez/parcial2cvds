@@ -16,17 +16,12 @@
  */
 package edu.eci.pdsw.samples.tests;
 
-import edu.eci.pdsw.samples.entities.Comentario;
-import edu.eci.pdsw.samples.persistence.PersistenceException;
 import edu.eci.pdsw.samples.services.ServiceFacadeException;
 import edu.eci.pdsw.samples.services.ServicesFacade;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -69,16 +64,19 @@ public class ServicesJUnitTest {
         //Insertar datos en la base de datos de pruebas, de acuerdo con la clase
         //de equivalencia correspondiente
         Connection conn=getConnection();
-        Statement stmt=conn.createStatement();        
-        stmt.execute("INSERT INTO `SUSCRIPTORES` (`id`, `nombre`,`anyo_nacimiento`,`total_suscripciones`) VALUES (123,'PEDRO PEREZ',1980,10)");
-        stmt.execute("INSERT INTO `COMENTARIOS` (`id`, `comentario`, `puntaje`, `fecha`, `CLIENTES_id`) VALUES (3,'El periodico llego en mal estado',3,'2015-01-01 00:00:00',123)");          
+        Statement stmt=conn.createStatement();  
+        
+        stmt.execute("INSERT INTO `PACIENTES` (`id`, `tipo_id`, `nombre`, `fecha_nacimiento`) VALUES (9876,'ti','Carmenzo','1995-07-10')");
+        stmt.execute("INSERT INTO `CONSULTAS` (`idCONSULTAS`, `fecha_y_hora`, `resumen`, `PACIENTES_id`, `PACIENTES_tipo_id`) VALUES (1262218,'2001-01-01 00:00:00','Gracias',9876,'cc')"); 
+        
+        
         conn.commit();
         conn.close();
 	
         //Realizar la operacion de la logica y la prueba
         
         ServicesFacade servicios=ServicesFacade.getInstance("h2-applicationconfig.properties");
-	//servicios.comenteriosMasBajosPorRangoEdad(1, 10);
+        //servicios.topNPacientesPorAnyo(2, 2005);	
         //assert ...
         Assert.fail("Pruebas no implementadas aun...");
         

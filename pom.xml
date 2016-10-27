@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>edu.eci.pdsw.samples</groupId>
-    <artifactId>2016-1-par2t</artifactId>
+    <artifactId>2016-2-par2t</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>2016-1-par2t</name>
+    <name>2016-2-par2t</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>

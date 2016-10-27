@@ -16,8 +16,7 @@
  */
 package edu.eci.pdsw.samples.services;
 
-import edu.eci.pdsw.samples.entities.Comentario;
-import edu.eci.pdsw.samples.persistence.DaoComentario;
+import edu.eci.pdsw.samples.entities.Paciente;
 import edu.eci.pdsw.samples.persistence.DaoFactory;
 import edu.eci.pdsw.samples.persistence.PersistenceException;
 import java.io.File;
@@ -29,6 +28,8 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import edu.eci.pdsw.samples.persistence.DAOPaciente;
+import java.util.List;
 
 /**
  *
@@ -63,23 +64,21 @@ public class ServicesFacade {
 
     
     /**
-     * Consultar los comentarios mas bajos (menores a 5) en el rango de 
-     * edad (A..B], es decir, donde A < edad <= B
-     * @param a asd
-     * @param b asdas
-     * @return el listado de comentarios cuyo puntaje es mejor que n
-     * @throws ServiceFacadeException si n es negativo o si se presenta un error
-     * a nivel de base de datos
-     */
-    public Set<Comentario> comenteriosMasBajosPorRangoEdad(int a,int b) throws ServiceFacadeException{
+     * Consultar los N pacientes que mas consultas hayan tenido registrados
+     * en el anyo indicado (del 1 de Enero al 31 de Diciembre del anyo 
+     * indicado).
+     * @param N el tope de resultados de la consulta
+     * @param year El anyo para el cual se realiza la consulta
+     * @return los pacientes, ordenados por numero de consultas
+     */    
+    public List<Paciente> topNPacientesPorAnyo(int N,int year) throws ServiceFacadeException{
         DaoFactory df=DaoFactory.getInstance(properties);
         try {
             df.beginSession();
-            return df.getDaoComentario().loadByScoreAndAge(5, a, b);
+            return df.getDaoPaciente().loadTopNPatientsInAYear(N, year);
         } catch (PersistenceException ex) {
             Logger.getLogger(ServicesFacade.class.getName()).log(Level.SEVERE, null, ex);
-            throw new ServiceFacadeException("Error en consulta comentarios bajos por rango de edad", ex);
-                    
+            throw new ServiceFacadeException("Error en consulta comentarios bajos por rango de edad", ex);                    
         }
          
     }

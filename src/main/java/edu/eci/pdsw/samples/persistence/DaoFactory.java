@@ -50,7 +50,7 @@ public abstract class DaoFactory {
 
     public abstract void beginSession() throws PersistenceException;
 
-    public abstract DaoComentario getDaoComentario();
+    public abstract DAOPaciente getDaoPaciente();
 
     public abstract void commitTransaction() throws PersistenceException;
 

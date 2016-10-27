@@ -16,23 +16,33 @@
  */
 package edu.eci.pdsw.samples.entities;
 
+import java.sql.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 /**
  *
  * @author hcadavid
  */
-public class Suscriptor {
-
+public class Paciente {
+    
     private int id;
+    private String tipo_id;
     private String nombre;
-    private int anoNacimiento;
-    private int numeroSuscripciones;
+    private Date fechaNacimiento;
+    Set<Consulta> consultas;
+    
 
-    public Suscriptor(int id, String nombre) {
+    public Paciente(int id, String tipo_id, String nombre, Date fechaNacimiento) {
         this.id = id;
+        this.tipo_id = tipo_id;
         this.nombre = nombre;
+        this.fechaNacimiento = fechaNacimiento;
+        consultas=new LinkedHashSet<>();
     }
 
-    public Suscriptor() {
+    public Paciente() {
+        consultas=new LinkedHashSet<>();
     }
 
     public int getId() {
@@ -43,6 +53,14 @@ public class Suscriptor {
         this.id = id;
     }
 
+    public String getTipo_id() {
+        return tipo_id;
+    }
+
+    public void setTipo_id(String tipo_id) {
+        this.tipo_id = tipo_id;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -51,25 +69,31 @@ public class Suscriptor {
         this.nombre = nombre;
     }
 
-    public int getAnoNacimiento() {
-        return anoNacimiento;
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setAnoNacimiento(int anoNacimiento) {
-        this.anoNacimiento = anoNacimiento;
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
-    public int getNumeroSuscripciones() {
-        return numeroSuscripciones;
+    public Set<Consulta> getConsultas() {
+        return consultas;
     }
 
-    public void setNumeroSuscripciones(int numeroSuscripciones) {
-        this.numeroSuscripciones = numeroSuscripciones;
+    public void setConsultas(Set<Consulta> consultas) {
+        this.consultas = consultas;
     }
 
     @Override
     public String toString() {
-        return "Suscriptor{" + "id=" + id + ", nombre=" + nombre + ", anoNacimiento=" + anoNacimiento + ", numeroSuscripciones=" + numeroSuscripciones + '}';
-    }    
+        String rep="Paciente:["+id+","+tipo_id+","+nombre+","+fechaNacimiento+"]\n";
+        for (Consulta c:consultas){
+            rep+="\t["+c+"]\n";
+        }
+        return rep;
+    }
+    
+    
     
 }
