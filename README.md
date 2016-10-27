@@ -36,12 +36,12 @@ Criterio de aceptación: Con los parámetros dados, el sistema debe mostrar los 
 	* En XML no se pueden usar los caracteres ‘<’ ni ‘>’. Si la sentencia SQL puesta en el XML del ‘mapper’ requiere de estos símbolos, use __\&lt;__ y __\&gt;__  en su lugar.
 	* Para la implementación, puede basarase en el siguiente Query, al cual falta agregarle el criterio para hacer la selección sólo para un determinado año:
 	
-		```sql
-select  pc.id, pc.tipo_id, pc.nombre, pc.fecha_nacimiento, cn.fecha_y_hora, cn.resumen, (select count(*) 
-from CONSULTAS where PACIENTES_id=pc.id) from PACIENTES as pc
+	```sql
+select  pc.id, pc.tipo_id, pc.nombre, pc.fecha_nacimiento, cn.fecha_y_hora, cn.resumen, (select count(*) from CONSULTAS where PACIENTES_id=pc.id) 
+from PACIENTES as pc
 left join CONSULTAS as cn on PACIENTES_id=id and PACIENTES_tipo_id = tipo_id 
 order by 7 desc	
-```
+	```
 
 
 3. (40%) En las página index.xhtml provista, implemente las historia de usuario indicada. Tenga en cuenta:
