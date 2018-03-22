@@ -12,4 +12,13 @@
         <result property='nombre' column='nombre'/>
     </resultMap>
 
+    <select id="getPacientes" resultMap="PacienteResult">
+        SELECT
+            p.id,
+            p.tipo_id,
+            p.fecha_nacimiento,
+            p.nombre
+        FROM
+            PACIENTES as p
+    </select>
 </mapper>
