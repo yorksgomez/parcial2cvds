@@ -15,6 +15,7 @@
 
 
 Se le han dado los fuentes de un avance parcial de una plataforma de consultas de pacientes de una IPS en línea. En esta plataforma los médicos podrán registrar y buscar pacientes así como buscar y registrar las consultas.
+Adicionalmente, la secretaria de salud puede hacer búsquedas para control epidemiológico.
 
 Para el Sprint en curso, se han seleccionado las siguientes historias de usuario del Backlog de producto:
 
