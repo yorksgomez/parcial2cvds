@@ -38,6 +38,10 @@ public class PacientesBean {
         this.tipoIdentificacion = tipoIdentificacion;
     }
 
+    public TipoIdentificacion getTipoIdentificacion() {
+        return tipoIdentificacion;
+    }
+
     public List<Paciente> getData() throws Exception{
         try {
             return ServiciosPacientesFactory.getInstance().getForumsServices().consultarPacientes();
