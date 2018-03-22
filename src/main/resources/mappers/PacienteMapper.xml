@@ -7,12 +7,9 @@
 
     <resultMap type='Paciente' id='PacienteResult'>
         <id property='id' column='id'/>        
-        <id property='tipo_id' column='tipo_id'/>
+        <id property='tipo_id' column='tipo_id' typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
         <result property='fechaNacimiento' column='fecha_nacimiento'/>
         <result property='nombre' column='nombre'/>
-        
-        
     </resultMap>
-    
-  	
+
 </mapper>

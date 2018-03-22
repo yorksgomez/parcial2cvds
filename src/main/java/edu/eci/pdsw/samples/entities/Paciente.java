@@ -27,13 +27,13 @@ import java.util.Set;
 public class Paciente {
     
     private int id;
-    private String tipo_id;
+    private TipoIdentificacion tipo_id;
     private String nombre;
     private Date fechaNacimiento;
     Set<Consulta> consultas;
     
 
-    public Paciente(int id, String tipo_id, String nombre, Date fechaNacimiento) {
+    public Paciente(int id, TipoIdentificacion tipo_id, String nombre, Date fechaNacimiento) {
         this.id = id;
         this.tipo_id = tipo_id;
         this.nombre = nombre;
@@ -53,11 +53,11 @@ public class Paciente {
         this.id = id;
     }
 
-    public String getTipo_id() {
+    public TipoIdentificacion getTipo_id() {
         return tipo_id;
     }
 
-    public void setTipo_id(String tipo_id) {
+    public void setTipo_id(TipoIdentificacion tipo_id) {
         this.tipo_id = tipo_id;
     }
 

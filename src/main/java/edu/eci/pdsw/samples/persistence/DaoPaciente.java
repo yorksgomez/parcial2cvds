@@ -14,12 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package edu.eci.pdsw.samples.managedbeans;
+package edu.eci.pdsw.samples.persistence;
+
+import edu.eci.pdsw.samples.entities.Consulta;
+import edu.eci.pdsw.samples.entities.Paciente;
+import java.util.List;
 
 /**
  *
  * @author hcadavid
  */
-public class ReporteRankingPacientesBean {
+public interface DaoPaciente {
+ 
+    public Paciente load(int id) throws PersistenceException;
+    
+    public List<Paciente> loadAll() throws PersistenceException;
+    
+    public void save(Paciente e) throws PersistenceException;
+    
+    public void update(Paciente e) throws PersistenceException;
+    
+    public void addConsulta(int idForo, Consulta c) throws PersistenceException;
     
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 hcadavid
+ * Copyright (C) 2016 hcadavid
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,29 +14,32 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package edu.eci.pdsw.samples.persistence;
+package edu.eci.pdsw.samples.managedbeans;
 
 import edu.eci.pdsw.samples.entities.Paciente;
+import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
+import edu.eci.pdsw.samples.services.ServiciosPacientesFactory;
 import java.util.List;
-
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author hcadavid
  */
-public interface DAOPaciente {
-
+@ManagedBean(name = "mb")
+@SessionScoped
+public class PacientesBean {
     
-    /**
-     * Consultar los N pacientes que mas consultas hayan tenido registrados
-     * en el anyo indicado (del 1 de Enero al 31 de Diciembre del anyo 
-     * indicado).
-     * @param N el tope de resultados de la consulta
-     * @param year El anyo para el cual se realiza la consulta
-     * @return los pacientes, ordenados por numero de consultas
-     */    
-    public List<Paciente> loadTopNPatientsInAYear(int N,int year);        
     
+    public List<Paciente> getData() throws Exception{
+        try {
+            return ServiciosPacientesFactory.getInstance().getForumsServices().consultarPacientes();
+        } catch (ExcepcionServiciosSuscripciones ex) {
+            
+            throw ex;
+        }
         
+    }
     
 }

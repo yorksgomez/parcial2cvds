@@ -12,7 +12,7 @@ CREATE TABLE `PACIENTES` (
 CREATE TABLE `CONSULTAS` (
   `idCONSULTAS` int(11) NOT NULL AUTO_INCREMENT,
   `fecha_y_hora` datetime NOT NULL,
-  `resumen` varchar(45)  NOT NULL,
+  `resumen` text  NOT NULL,
   `PACIENTES_id` int(11) NOT NULL DEFAULT '0',
   `PACIENTES_tipo_id` varchar(2),
   PRIMARY KEY (`idCONSULTAS`),

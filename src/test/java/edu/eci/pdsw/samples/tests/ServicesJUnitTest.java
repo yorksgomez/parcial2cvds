@@ -16,13 +16,16 @@
  */
 package edu.eci.pdsw.samples.tests;
 
-import edu.eci.pdsw.samples.services.ServiceFacadeException;
-import edu.eci.pdsw.samples.services.ServicesFacade;
+import edu.eci.pdsw.samples.entities.Paciente;
+import edu.eci.pdsw.samples.entities.Consulta;
+import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
+import edu.eci.pdsw.samples.services.ServiciosPacientesFactory;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -43,11 +46,10 @@ public class ServicesJUnitTest {
 
     @After
     public void clearDB() throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "");
+        Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "anonymous");
         Statement stmt = conn.createStatement();
-        stmt.execute("delete from CONSULTAS");
         stmt.execute("delete from PACIENTES");
-        
+        stmt.execute("delete from CONSULTAS");
         conn.commit();
         conn.close();
     }
@@ -58,33 +60,31 @@ public class ServicesJUnitTest {
      * @throws SQLException 
      */
     private Connection getConnection() throws SQLException{
-        return DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "");        
+        return DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "anonymous");
     }
     
     @Test
-    public void pruebaCeroTest() throws SQLException, ServiceFacadeException {
+    public void pruebaCeroTest() throws SQLException, ExcepcionServiciosSuscripciones {
         //Insertar datos en la base de datos de pruebas, de acuerdo con la clase
         //de equivalencia correspondiente
         Connection conn=getConnection();
-        Statement stmt=conn.createStatement();  
-        
+        Statement stmt=conn.createStatement();
+
         stmt.execute("INSERT INTO `PACIENTES` (`id`, `tipo_id`, `nombre`, `fecha_nacimiento`) VALUES (9876,'ti','Carmenzo','1995-07-10')");
-        stmt.execute("INSERT INTO `CONSULTAS` (`idCONSULTAS`, `fecha_y_hora`, `resumen`, `PACIENTES_id`, `PACIENTES_tipo_id`) VALUES (1262218,'2001-01-01 00:00:00','Gracias',9876,'ti')"); 
-        
-        
-        ResultSet rs=stmt.executeQuery("select count(*) from PACIENTES");
-        while (rs.next()){
-            System.out.println(">>>>"+rs.getInt(1));
-        }
-        
-        
+        stmt.execute("INSERT INTO `CONSULTAS` (`idCONSULTAS`, `fecha_y_hora`, `resumen`, `PACIENTES_id`, `PACIENTES_tipo_id`) VALUES (1262218,'2001-01-01 00:00:00','Gracias',9876,'TI')");
+
         conn.commit();
         conn.close();
 	
         //Realizar la operacion de la logica y la prueba
         
-        ServicesFacade servicios=ServicesFacade.getInstance("h2-applicationconfig.properties");
-        servicios.topNPacientesPorAnyo(2, 2005);	
+        
+        List<Paciente> pacientes = ServiciosPacientesFactory.getInstance().getTestingForumServices().consultarPacientes();
+
+        
+        for (Paciente paciente : pacientes){
+            System.out.println(paciente);
+        }
         //assert ...
         Assert.fail("Pruebas no implementadas aun...");
         
