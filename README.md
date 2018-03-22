@@ -41,7 +41,7 @@ Recuerde que en el formato XML no se puede utilizar '<' y '>', por ejemplo al re
   >
   > **Para** Conocer con rapidez qué pacientes debo revisar y tomar medidas al respecto.
   >
-  > **Criterio de aceptación:** El reporte NO debe requerir entrar parámetro alguno. Se considerán como enfermedades contagiosas: 'hepatítis' y 'varicela'. El reporte sólo debe contener el número y tipo de identificación  del paciente y la fecha de nacimiento, ordenados por edad de mayor a menor.
+  > **Criterio de aceptación:** El reporte NO debe requerir entrar parámetro alguno. Se considerán como enfermedades contagiosas: 'hepatitis' y 'varicela'. El reporte sólo debe contener el número y tipo de identificación  del paciente y la fecha de nacimiento, ordenados por edad de mayor a menor.
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 El modelo de base de datos y de clases asociados a la implementación parcial son los siguientes:
@@ -54,7 +54,7 @@ A partir de la aplicación base suministrada, debe realizar lo siguiente:
 
 Dado un número y tipo de identificacion de un paciente, mostrar el paciente y las consultas que ha realizado esde paciente.
 
-Mostrar los pacientes menores de edad que en sus consultas se encuentren las enfermedades: hepatitis y varicela.
+Mostrar los pacientes menores de edad que en sus consultas se encuentren las enfermedades: hepatitis o varicela.
 
 
 1.  (20%) A partir de la especificación hecha en los métodos

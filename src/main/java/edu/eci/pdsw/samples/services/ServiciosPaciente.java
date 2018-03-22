@@ -1,11 +1,10 @@
 package edu.eci.pdsw.samples.services;
 
 
-import java.sql.Date;
 import java.util.List;
-import java.util.Set;
+
 import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.entities.Consulta;
+import edu.eci.pdsw.samples.entities.TipoIdentificacion;
 
 /**
  *
@@ -14,7 +13,7 @@ import edu.eci.pdsw.samples.entities.Consulta;
 public interface ServiciosPaciente {
 
     /**
-     * Consultar todas las entradas de foro
+     * Consultar todos los pacientes
      * @return
      * @throws ExcepcionServiciosSuscripciones 
      */
@@ -22,20 +21,21 @@ public interface ServiciosPaciente {
         
     
     /**
-     * Consulta una entrada de foro a partir de su identificador
-     * @param id el identificador del foro
-     * @return La entrada de foro con sus comentarios ordenados del mas
-     * reciente al mas antiguo
-     * @throws ExcepcionServiciosSuscripciones si NO existe un foro con dicho
-     * identificador, o si se presenta otro problema en las capas inferiores.
+     * Consulta un paciente a partir de su numero y tipo de identificacion
+     * @param id numero de identificacion
+     * @param tipoIdentificacion
+     * @return el paciente con sus consultas ordenadas de la mas
+     * reciente a la mas antigua
+     * @throws ExcepcionServiciosSuscripciones si NO existe un paciente con dicha
+     * identificacion, o si se presenta otro problema en las capas inferiores.
      */
-    public List<Paciente> consultarPacientesPorId(int id) throws ExcepcionServiciosSuscripciones;
+    public Paciente consultarPacientesPorId(int id, TipoIdentificacion tipoIdentificacion) throws ExcepcionServiciosSuscripciones;
     
     /**
-     * Consulta una entrada de foro a partir de su identificador
-     * @return el listado de entrada de foros que tengan comentarios con vulgaridades,
-     * es decir, cuyos comentarios contengan en su texto las palabras 'recorcholis' y
-     * 'carambolas'
+     * Consulta los pacientes menores de edad que han tenido enfermedades contagiosas
+     * @return el listado de pacientes menores de edad que han tenido enfermedades contagiosas,
+     * es decir, que tengan consultas que contengan en su texto palabras 'hepatitis' o
+     * 'varicela'
      * @throws ExcepcionServiciosSuscripciones si se presenta otro problema en las capas inferiores.
      */
     public List<Paciente> consultarMenoresConEnfermedadContagiosa() throws ExcepcionServiciosSuscripciones;
