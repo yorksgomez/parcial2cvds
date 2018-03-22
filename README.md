@@ -43,9 +43,9 @@ Para el Sprint en curso, se han seleccionado las siguientes historias de usuario
 
 El modelo de base de datos y de clases asociados a la implementación parcial son los siguientes:
 
-![](./img/Model.png)
-
 ![](./img/Diagram.png)
+
+![](./img/Model.png)
 
 A partir de la aplicación base suministrada, debe realizar lo siguiente:
 
