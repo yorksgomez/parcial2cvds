@@ -48,8 +48,8 @@ public class ServicesJUnitTest {
     public void clearDB() throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "anonymous");
         Statement stmt = conn.createStatement();
-        stmt.execute("delete from PACIENTES");
         stmt.execute("delete from CONSULTAS");
+        stmt.execute("delete from PACIENTES");
         conn.commit();
         conn.close();
     }
