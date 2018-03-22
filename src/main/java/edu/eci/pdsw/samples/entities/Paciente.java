@@ -17,7 +17,9 @@
 package edu.eci.pdsw.samples.entities;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -30,7 +32,7 @@ public class Paciente {
     private TipoIdentificacion tipo_id;
     private String nombre;
     private Date fechaNacimiento;
-    Set<Consulta> consultas;
+    List<Consulta> consultas;
     
 
     public Paciente(int id, TipoIdentificacion tipo_id, String nombre, Date fechaNacimiento) {
@@ -38,11 +40,11 @@ public class Paciente {
         this.tipo_id = tipo_id;
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
-        consultas=new LinkedHashSet<>();
+        consultas=new ArrayList<>();
     }
 
     public Paciente() {
-        consultas=new LinkedHashSet<>();
+        consultas=new ArrayList<>();
     }
 
     public int getId() {
@@ -77,21 +79,22 @@ public class Paciente {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public Set<Consulta> getConsultas() {
+    public List<Consulta> getConsultas() {
         return consultas;
     }
 
-    public void setConsultas(Set<Consulta> consultas) {
+    public void setConsultas(List<Consulta> consultas) {
         this.consultas = consultas;
     }
 
     @Override
     public String toString() {
-        String rep="Paciente:["+id+","+tipo_id+","+nombre+","+fechaNacimiento+"]\n";
+        StringBuffer rep = new StringBuffer("Paciente: { id:"+id+", tipo_id:"+tipo_id+", nombre: "+nombre+", fechaNacimiento: "+fechaNacimiento+", consultas : [\n");
         for (Consulta c:consultas){
-            rep+="\t["+c+"]\n";
+            rep.append(c+"\n");
         }
-        return rep;
+        rep.append("]");
+        return rep.toString();
     }
     
     
