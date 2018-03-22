@@ -12,7 +12,7 @@ import static com.google.inject.Guice.createInjector;
 import com.google.inject.Injector;
 import edu.eci.pdsw.samples.persistence.DaoPaciente;
 import edu.eci.pdsw.samples.persistence.mybatisimpl.MyBatisDAOPaciente;
-import edu.eci.pdsw.samples.services.impl.ServiciosForosImpl;
+import edu.eci.pdsw.samples.services.impl.ServiciosPacienteImpl;
 
 /**
  *
@@ -32,7 +32,7 @@ public class ServiciosPacientesFactory {
             protected void initialize() {
                 install(JdbcHelper.MySQL);
                 setClassPathResource("mybatis-config.xml");
-                bind(ServiciosPaciente.class).to(ServiciosForosImpl.class);
+                bind(ServiciosPaciente.class).to(ServiciosPacienteImpl.class);
                 bind(DaoPaciente.class).to(MyBatisDAOPaciente.class);
 
             }
@@ -46,7 +46,7 @@ public class ServiciosPacientesFactory {
             protected void initialize() {
                 install(JdbcHelper.MySQL);
                 setClassPathResource("mybatis-config-h2.xml");
-                bind(ServiciosPaciente.class).to(ServiciosForosImpl.class);
+                bind(ServiciosPaciente.class).to(ServiciosPacienteImpl.class);
                 bind(DaoPaciente.class).to(MyBatisDAOPaciente.class);
             }
 

@@ -17,18 +17,15 @@ import java.util.List;
  *
  * @author hcadavid
  */
-public class ServiciosForosImpl implements ServiciosPaciente {
+public class ServiciosPacienteImpl implements ServiciosPaciente {
 
     @Inject
-    private DaoPaciente daoef;
-    
-    @Inject
-    private DaoConsulta daou;
+    private DaoPaciente daoPaciente;
 
     @Override
     public List<Paciente> consultarPacientes() throws ExcepcionServiciosSuscripciones {
         try {
-            return daoef.loadAll();
+            return daoPaciente.loadAll();
         } catch (PersistenceException ex) {
             throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
         }
