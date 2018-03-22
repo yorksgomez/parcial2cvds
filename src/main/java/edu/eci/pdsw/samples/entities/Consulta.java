@@ -67,7 +67,7 @@ public class Consulta {
 
     @Override
     public String toString() {
-        return "("+id+","+fechayHora+","+resumen+")"; //To change body of generated methods, choose Tools | Templates.
+        return "Consulta { id: "+id+", fechayHora: "+fechayHora+", resumen: "+resumen+" }";
     }
     
     
