@@ -18,6 +18,9 @@ Se le han dado los fuentes de un avance parcial de una plataforma de consultas d
 
 Para el Sprint en curso, se han seleccionado las siguientes historias de usuario del Backlog de producto:
 
+Recuerde que en el formato XML no se puede utilizar '<' y '>', por ejemplo al realizar comparaciones, 
+ utilice '&lt;' o '&gt;' respectivamente. 
+
 ## Historia de usuario #1
 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
