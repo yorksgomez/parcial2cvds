@@ -51,5 +51,9 @@ public class PacientesBean {
         }
         
     }
+
+    public TipoIdentificacion[] getTiposIdentificacion() {
+        return TipoIdentificacion.values();
+    }
     
 }

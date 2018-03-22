@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://omnifaces.org/ui"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title></title>
@@ -13,7 +14,7 @@
             <!--Por favor no cambiar el 'id':-->
             <p:inputText id="identificacion_paciente"></p:inputText>
             <p:selectOneMenu value="#{mb.tipoIdentificacion}" >
-                <f:selectItems value="#{TipoIdentificacion}" />
+                <f:selectItems value="#{mb.tiposIdentificacion}" />
             </p:selectOneMenu>
             <!--Por favor no cambiar el 'value':-->
             <p:commandButton value="Consultar"></p:commandButton>
