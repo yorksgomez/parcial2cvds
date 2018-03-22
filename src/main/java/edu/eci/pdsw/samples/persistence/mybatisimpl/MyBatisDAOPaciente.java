@@ -19,6 +19,7 @@ package edu.eci.pdsw.samples.persistence.mybatisimpl;
 import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Consulta;
 import edu.eci.pdsw.samples.entities.Paciente;
+import edu.eci.pdsw.samples.entities.TipoIdentificacion;
 import edu.eci.pdsw.samples.persistence.DaoPaciente;
 import edu.eci.pdsw.samples.persistence.PersistenceException;
 import edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.PacienteMapper;
@@ -35,7 +36,7 @@ public class MyBatisDAOPaciente implements DaoPaciente {
     PacienteMapper pacienteMapper;
     
     @Override
-    public Paciente load(int id) throws PersistenceException {
+    public Paciente load(int id, TipoIdentificacion tipoIdentificacion) throws PersistenceException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -61,8 +62,9 @@ public class MyBatisDAOPaciente implements DaoPaciente {
     }
 
     @Override
-    public void addConsulta(int id, Consulta c) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addConsulta(int id, TipoIdentificacion tipoId, Consulta c) throws PersistenceException {
+
     }
-    
+
+
 }

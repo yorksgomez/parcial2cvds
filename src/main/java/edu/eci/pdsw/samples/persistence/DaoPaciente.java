@@ -18,6 +18,8 @@ package edu.eci.pdsw.samples.persistence;
 
 import edu.eci.pdsw.samples.entities.Consulta;
 import edu.eci.pdsw.samples.entities.Paciente;
+import edu.eci.pdsw.samples.entities.TipoIdentificacion;
+
 import java.util.List;
 
 /**
@@ -26,7 +28,7 @@ import java.util.List;
  */
 public interface DaoPaciente {
  
-    public Paciente load(int id) throws PersistenceException;
+    public Paciente load(int id, TipoIdentificacion tipoIdentificacion) throws PersistenceException;
     
     public List<Paciente> loadAll() throws PersistenceException;
     
@@ -34,6 +36,6 @@ public interface DaoPaciente {
     
     public void update(Paciente e) throws PersistenceException;
     
-    public void addConsulta(int idForo, Consulta c) throws PersistenceException;
+    public void addConsulta(int id, TipoIdentificacion tipoId, Consulta c) throws PersistenceException;
     
 }
