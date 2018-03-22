@@ -104,7 +104,7 @@ Siga al pie de la letra estas indicaciones para la entrega del examen. EL HACER 
 6. IMPORTANTE!. Conserve una copia de la carpeta y del archivo .ZIP.
 
 
-
+<!--
 ## Bono
 
 Si después de realizado el parcial, de forma INDIVIDUAL encuentra defectos menores (que impliquen a lo sumo cambiar 5 líneas de código), y que al corregirlos permiten que los puntos 2 o 3 funcionen:
@@ -122,3 +122,4 @@ Si después de realizado el parcial, de forma INDIVIDUAL encuentra defectos meno
 4. Si el resultado del comando anterior es menor o igual a 10, puede aplicar al bono.
 
 5. Comprima la nueva versión siguiendo el esquema indicado en el parcial, y súbalo a más tardar el 27 de Octubre a las 11:59pm en el espacio correspondiente.
+-->
