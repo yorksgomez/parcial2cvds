@@ -20,7 +20,7 @@ Adicionalmente, la secretaria de salud puede hacer búsquedas para control epide
 Para el Sprint en curso, se han seleccionado las siguientes historias de usuario del Backlog de producto:
 
 Recuerde que en el formato XML no se puede utilizar '<' y '>', por ejemplo al realizar comparaciones, 
- utilice '&lt;' o '&gt;' respectivamente. 
+ utilice '&amp;lt;' o '&amp;gt;' respectivamente. 
 
 ## Historia de usuario #1
 
