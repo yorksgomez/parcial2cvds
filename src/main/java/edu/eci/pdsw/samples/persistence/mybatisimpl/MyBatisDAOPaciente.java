@@ -45,7 +45,7 @@ public class MyBatisDAOPaciente implements DaoPaciente {
             return pacienteMapper.getPacientes();
         }
         catch(Exception e){
-            throw new PersistenceException("Error al consultar los foros:"+e.getLocalizedMessage(), e);
+            throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
         }
         
     }
