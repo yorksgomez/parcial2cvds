@@ -6,7 +6,7 @@
 
 **IMPORTANTE**
 
-* Trabajar en Linux (para evitar problemas con las instrucciones finales).
+* Deseable Trabajar en Linux (para evitar problemas con las instrucciones finales).
 * Se puede consultar en la Web: APIs/Documentación de lenguaje y frameworks (Primefaces, Guice, MyBatis, etc), y enunciados de los laboratorios (se pueden revisar los fuentes incluidos con los dichos enunciados).
 * No se permite: Usar memorias USB, acceder a redes sociales, clientes de correo, o sistemas de almacenamiento en la nube (Google Drive, DropBox, etc). El uso de éstos implicará anulación.
 * Clone el proyecto con GIT, NO lo descargue directamente.
@@ -69,41 +69,7 @@ Mostrar los pacientes menores de edad que en sus consultas se encuentren las enf
 
 ## Entrega
 
-Siga al pie de la letra estas indicaciones para la entrega del examen. EL HACER CASO OMISO DE ESTAS INSTRUCCIONES PENALIZARÁ LA NOTA.
-
-1. Limpie el proyecto
-
-	```bash
-	$ mvn clean
-	```
-
-1. Configure su usuario de GIT
-
-	```bash
-	$ git config --global user.name "Juan Perez"
-	$ git config --global user.email juan.perez@escuelaing.edu.co
-	```
-
-2. Desde el directorio raíz (donde está este archivo README.md), haga commit de lo realizado.
-
-	```bash
-	$ git add .
-	$ git commit -m "entrega parcial - Juan Perez"
-	```
-
-
-3. Desde este mismo directorio, comprima todo con: (no olvide el punto al final en la segunda instrucción)
-
-	```bash
-	$ zip -r APELLIDO.NOMBRE.zip .
-	```
-
-4. Abra el archivo ZIP creado, y rectifique que contenga lo desarrollado.
-
-5. Suba el archivo antes creado (APELLIDO.NOMBRE.zip) en el espacio de moodle correspondiente.
-
-6. IMPORTANTE!. Conserve una copia de la carpeta y del archivo .ZIP.
-
+1. Documentar la solución en Readme de Git.
 
 ## Bono
 
