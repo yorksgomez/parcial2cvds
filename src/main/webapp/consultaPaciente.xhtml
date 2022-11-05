@@ -10,15 +10,50 @@
     </h:head>
     <h:body>
         <h1>TITULO</h1>
-        <h:form>
+        <h:form id="search_form">
             <!--Por favor no cambiar el 'id':-->
-            <p:inputText id="identificacion_paciente"></p:inputText>
+            <p:inputText id="identificacion_paciente" value="#{mb.identificacion}"></p:inputText>
+            <p:outputLabel value="Texto: #{mb.identificacion}" style="display:none;"></p:outputLabel>
             <p:selectOneMenu value="#{mb.tipoIdentificacion}" >
                 <f:selectItems value="#{mb.tiposIdentificacion}" />
             </p:selectOneMenu>
             <!--Por favor no cambiar el 'value':-->
-            <p:commandButton value="Consultar"></p:commandButton>
+            <p:commandButton value="Consultar" update="search_form" actionListener="#{mb.consultar}"></p:commandButton>
+
+            <div style="margin-top: 50px; border-top:1px solid #000;">
+                <p:outputLabel value="Nombre del paciente: #{mb.encontrado.nombre}" style="margin-right: 20px;"></p:outputLabel>
+                <p:outputLabel value="Fecha de nacimiento: #{mb.encontrado.fechaNacimiento}"></p:outputLabel>
+
+                <h:dataTable value="#{mb.encontrado.consultas}" var="Consulta" style="margin-top:50px; width:600px; " >
+                    <h:column >
+                        <f:facet name="header" style="background-color:red;">ID</f:facet>
+                        <p:outputLabel value="#{Consulta.id}"></p:outputLabel>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Fecha y hora</f:facet>
+                        <p:outputLabel value="#{Consulta.fechayHora}"></p:outputLabel>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Resumen</f:facet>
+                        <p:outputLabel value="#{Consulta.resumen}"></p:outputLabel>
+                    </h:column>
+                </h:dataTable>
+
+            </div>
         </h:form>
+
+        <style>
+            table {
+                font-family: sans-serif;
+                text-align: center;
+            }
+
+            thead {
+                background-color: #bae4e5;
+            
+            }
+        </style>
+
     </h:body>
 </html>
 

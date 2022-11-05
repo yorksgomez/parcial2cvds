@@ -1,17 +1,43 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:o="http://omnifaces.org/ui"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Consulta de Pacientes</title>
-    </h:head>
-    <h:body>
-        <h1>Consulta de menores que han padecido enfermedad contagiosa</h1>
-        <h:form>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:o="http://omnifaces.org/ui"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Consulta de Pacientes</title>
+</h:head>
+<h:body>
+    <h1>Consulta de menores que han padecido enfermedad contagiosa</h1>
+    <h:form>
+        <h:dataTable value="#{mb.sicks}" var="Paciente" style="margin-top:50px; width:600px; ">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                <p:outputLabel value="#{Paciente.id}"></p:outputLabel>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Tipo de identificación</f:facet>
+                <p:outputLabel value="#{Paciente.tipo_id}"></p:outputLabel>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Fecha de nacimiento</f:facet>
+                <p:outputLabel value="#{Paciente.fechaNacimiento}"></p:outputLabel>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+    <style>
+        table {
+            font-family: sans-serif;
+            text-align: center;
+        }
 
-        </h:form>
-    </h:body>
+        thead {
+            background-color: #bae4e5;
+        
+        }
+    </style>
+</h:body>
+
 </html>
-

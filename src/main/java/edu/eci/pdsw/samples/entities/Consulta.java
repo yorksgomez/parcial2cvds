@@ -26,7 +26,6 @@ public class Consulta {
     //el identificador es asignado por la base de datos,
     //por eso no se incluye en el constructor.
     private int id;
-    
     private Date fechayHora;
     private String resumen;
 
@@ -36,7 +35,7 @@ public class Consulta {
         this.id=-1;
         this.fechayHora = fechayHora;
         this.resumen = resumen;
-    }    
+    }   
     
     public Consulta() {
     }

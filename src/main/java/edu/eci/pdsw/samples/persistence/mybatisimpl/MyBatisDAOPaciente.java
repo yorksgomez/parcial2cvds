@@ -37,7 +37,11 @@ public class MyBatisDAOPaciente implements DaoPaciente {
     
     @Override
     public Paciente load(int id, TipoIdentificacion tipoIdentificacion) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            return pacienteMapper.getPaciente(id, tipoIdentificacion);
+        } catch(Exception ex) {
+            throw new PersistenceException("Error al consultar el paciente: " + ex.getLocalizedMessage(), ex);
+        }
     }
 
     @Override
@@ -45,25 +49,45 @@ public class MyBatisDAOPaciente implements DaoPaciente {
         try{
             return pacienteMapper.getPacientes();
         }
-        catch(Exception e){
-            throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
+        catch(Exception ex){
+            throw new PersistenceException("Error al consultar los pacientes:"+ex.getLocalizedMessage(), ex);
         }
-        
     }
 
     @Override
     public void save(Paciente e) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            pacienteMapper.addPaciente(e);
+        } catch(Exception ex) {
+            throw new PersistenceException("Error al guardar el paciente: " + ex.getLocalizedMessage(), ex);
+        }
     }
 
     @Override
     public void update(Paciente e) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            pacienteMapper.setPaciente(e);
+        } catch(Exception ex) {
+            throw new PersistenceException("Error al actualizar el paciente: " + ex.getLocalizedMessage(), ex);
+        }
     }
 
     @Override
     public void addConsulta(int id, TipoIdentificacion tipoId, Consulta c) throws PersistenceException {
+        try {
+            pacienteMapper.addConsulta(id, tipoId, c);
+        } catch(Exception ex) {
+            throw new PersistenceException("Error al agregar consulta al paciente: " + ex.getLocalizedMessage(), ex);
+        }
+    }
 
+    @Override
+    public List<Paciente> loadSick() throws PersistenceException {
+        try {
+            return pacienteMapper.getSick();
+        } catch(Exception ex) {
+            throw new PersistenceException("Error al consultar pacientes: " + ex.getLocalizedMessage(), ex);
+        }
     }
 
 

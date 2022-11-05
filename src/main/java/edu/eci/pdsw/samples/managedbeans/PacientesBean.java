@@ -32,7 +32,11 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class PacientesBean {
 
+    int identificacion;
     TipoIdentificacion tipoIdentificacion = TipoIdentificacion.CC;
+
+    Paciente encontrado;
+
 
     public void setTipoIdentificacion(TipoIdentificacion tipoIdentificacion) {
         this.tipoIdentificacion = tipoIdentificacion;
@@ -40,6 +44,14 @@ public class PacientesBean {
 
     public TipoIdentificacion getTipoIdentificacion() {
         return tipoIdentificacion;
+    }
+
+    public void setIdentificacion(int identificacion) {
+        this.identificacion = identificacion;
+    }
+
+    public int getIdentificacion() {
+        return this.identificacion;
     }
 
     public List<Paciente> getData() throws Exception{
@@ -52,8 +64,51 @@ public class PacientesBean {
         
     }
 
+    public Paciente getPacienteData() throws Exception{
+        try {
+            return ServiciosPacientesFactory.getInstance().getForumsServices().consultarPacientesPorId(Integer.valueOf(identificacion), tipoIdentificacion);
+        } catch (ExcepcionServiciosSuscripciones ex) {
+            
+            throw ex;
+        }
+        
+    }
+
+    public List<Paciente> getSicks() throws Exception {
+        try {
+            return ServiciosPacientesFactory.getInstance().getForumsServices().consultarMenoresConEnfermedadContagiosa();
+        } catch (ExcepcionServiciosSuscripciones ex) {
+            
+            throw ex;
+        }
+    }
+
+    public Paciente getEncontrado() {
+        return encontrado;
+    }
+
+    public void setEncontrado(Paciente e) {
+        this.encontrado = e;
+    }
+
     public TipoIdentificacion[] getTiposIdentificacion() {
         return TipoIdentificacion.values();
     }
     
+    public void consultar() {
+
+        try {
+            Paciente p = getPacienteData();
+            encontrado = p;
+            System.out.println("========================================================================================");
+            System.out.println("========================================================================================");
+            System.out.println("========================================================================================");
+            System.out.println("========================================================================================");
+            System.out.println(this.getData());
+        }catch (Exception ex) {
+            System.out.println("Error haciendo la consulta: " + ex.getMessage());
+        }
+        
+    }
+
 }

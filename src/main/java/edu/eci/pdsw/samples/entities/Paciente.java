@@ -33,7 +33,6 @@ public class Paciente {
     private String nombre;
     private Date fechaNacimiento;
     List<Consulta> consultas;
-    
 
     public Paciente(int id, TipoIdentificacion tipo_id, String nombre, Date fechaNacimiento) {
         this.id = id;
@@ -42,7 +41,6 @@ public class Paciente {
         this.fechaNacimiento = fechaNacimiento;
         consultas=new ArrayList<>();
     }
-
     public Paciente() {
         consultas=new ArrayList<>();
     }
